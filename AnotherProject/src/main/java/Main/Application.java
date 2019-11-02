@@ -31,9 +31,11 @@ public class Application {
 			 		"	dob date,\r\n" + 
 			 		"	mark numeric\r\n" + 
 			 		"); ");	
-			 
+			 int n;
 			 System.out.println("Choose number of the next rows");
-			int n =Integer.parseInt(in.nextLine());
+			 try {
+			  n =Integer.parseInt(in.nextLine());
+		 
 			 System.out.println("Installed table Students");
 			  for (int i = 0; i < n; i++) {	
 				System.out.println();
@@ -44,11 +46,16 @@ public class Application {
 					String dobIN =in.nextLine();
 				System.out.println();	
 					System.out.println("Please insert data(Student_mark)");
-					Float markIN = Float.parseFloat(in.nextLine());
+					 Float markIN;
+				//	try {
+					     markIN = Float.parseFloat(in.nextLine());
+			//		}catch( NumberFormatException e){    
+				//		e.printStackTrace();}
 					
 					
 			 st.executeUpdate("insert into students(fullname,dob,mark) values(' "+fullnameIN+"','"+dobIN+"',"+markIN+");");
 			 }
+	 
 			 System.out.println("inserted rows");
 			 st.executeUpdate("update students set dob = '1799-06-06' where id =1;");
 			 System.out.println("update row with id =1");
@@ -62,6 +69,8 @@ public class Application {
 						 			resultSet.getFloat("mark")
 						 			);
 			 }
+			 }catch( NumberFormatException e){    
+					e.printStackTrace();}
 			 
 		} catch (SQLException e) {
 			e.printStackTrace();
