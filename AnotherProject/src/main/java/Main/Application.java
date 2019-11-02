@@ -33,7 +33,7 @@ public class Application {
 			 		"); ");	
 			 
 			 System.out.println("Choose number of the next rows");
-			 int n = in.nextInt();
+			int n =Integer.parseInt(in.nextLine());
 			 System.out.println("Installed table Students");
 			  for (int i = 0; i < n; i++) {	
 				System.out.println();
@@ -44,7 +44,7 @@ public class Application {
 					String dobIN =in.nextLine();
 				System.out.println();	
 					System.out.println("Please insert data(Student_mark)");
-					Float markIN =in.nextFloat();
+					Float markIN = Float.parseFloat(in.nextLine());
 					
 					
 			 st.executeUpdate("insert into students(fullname,dob,mark) values(' "+fullnameIN+"','"+dobIN+"',"+markIN+");");
